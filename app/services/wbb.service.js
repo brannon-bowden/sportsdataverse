@@ -160,7 +160,6 @@ module.exports = {
         const baseUrl = `http://cdn.espn.com/womens-college-basketball/schedule/_/date/${year}${parseInt(month) <= 9 ? "0" + parseInt(month) : parseInt(month)}${parseInt(day) <= 9 ? "0" + parseInt(day) : parseInt(day)}/group/${group}`
         //const baseUrl = `http://cdn.espn.com/core/womens-college-basketball/schedule?dates=${year}${parseInt(month) <= 9 ? "0" + parseInt(month) : parseInt(month)}${parseInt(day) <= 9 ? "0" + parseInt(day) : parseInt(day)}`;
         const params = {
-            seasontype: seasontype,
             xhr: 1
         };
 
