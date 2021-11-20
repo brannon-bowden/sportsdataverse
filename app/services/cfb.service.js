@@ -336,7 +336,7 @@ module.exports = {
         return res.content.data;
     },
 
-    getBownSchedule: async function ({ year = null, month = null, day = null, group = 80, seasontype = 2 }) {
+    getBowlSchedule: async function ({ year = null, month = null, day = null, group = 80, seasontype = 2 }) {
         const baseUrl = `http://cdn.espn.com/college-football/schedule/_/week/1/seasontype/3`
         //const baseUrl = `http://cdn.espn.com/core/college-football/schedule?dates=${year}${parseInt(month) <= 9 ? "0" + parseInt(month) : parseInt(month)}${parseInt(day) <= 9 ? "0" + parseInt(day) : parseInt(day)}`;
         const params = {
