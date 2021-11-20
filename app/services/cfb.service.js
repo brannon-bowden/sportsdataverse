@@ -349,15 +349,12 @@ module.exports = {
      * @example
      * const result = await sdv.cfb.getSchedule(year = 2019, month = 11, day = 16, group=80)
      */
-    getSchedule: async function ({year = null, month = null, day = null, groups = 80, seasontype = 2}){
-        const baseUrl = `http://cdn.espn.com/core/college-football/schedule?dates=${year}${parseInt(month) <= 9 ? "0" + parseInt(month) : parseInt(month)}${parseInt(day) <= 9 ? "0" + parseInt(day) : parseInt(day)}`;
+    getSchedule: async function ({ year = null, month = null, day = null, group = 80, seasontype = 2 }) {
+        const baseUrl = `http://cdn.espn.com/college-football/schedule/_/date/${year}${parseInt(month) <= 9 ? "0" + parseInt(month) : parseInt(month)}${parseInt(day) <= 9 ? "0" + parseInt(day) : parseInt(day)}/group/${group}`
+        //const baseUrl = `http://cdn.espn.com/core/college-football/schedule?dates=${year}${parseInt(month) <= 9 ? "0" + parseInt(month) : parseInt(month)}${parseInt(day) <= 9 ? "0" + parseInt(day) : parseInt(day)}`;
         const params = {
-            groups: groups,
             seasontype: seasontype,
             xhr: 1,
-            render: false,
-            device: 'desktop',
-            userab: 18
         };
 
         const res = await axios.get(baseUrl, {
