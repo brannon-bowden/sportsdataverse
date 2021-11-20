@@ -319,16 +319,16 @@ module.exports = {
      * year = 2021, month = 02, day = 15, group=50
      * )
      */
-    getSchedule: async function({
+     getSchedule: async function({
         year = null,
         month = null,
         day = null,
         group = 50,
         seasontype = 2
     }) {
-        const baseUrl = `http://cdn.espn.com/core/mens-college-basketball/schedule?dates=${year}${parseInt(month) <= 9 ? "0" + parseInt(month) : parseInt(month)}${parseInt(day) <= 9 ? "0" + parseInt(day) : parseInt(day)}`;
+        const baseUrl = `http://cdn.espn.com/mens-college-basketball/schedule/_/date/${year}${parseInt(month) <= 9 ? "0" + parseInt(month) : parseInt(month)}${parseInt(day) <= 9 ? "0" + parseInt(day) : parseInt(day)}/group/${group}`
+        //const baseUrl = `http://cdn.espn.com/core/mens-college-basketball/schedule?dates=${year}${parseInt(month) <= 9 ? "0" + parseInt(month) : parseInt(month)}${parseInt(day) <= 9 ? "0" + parseInt(day) : parseInt(day)}`;
         const params = {
-            groups: group,
             seasontype: seasontype,
             xhr: 1
         };

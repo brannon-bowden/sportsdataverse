@@ -149,23 +149,19 @@ module.exports = {
      * year = 2021, month = 02, day = 15, group=50
      * )
      */
-    getSchedule: async function ({
+     getSchedule: async function ({
         year = null,
         month = null,
         day = null,
-        groups = 50,
+        group = 50,
         seasontype = 2,
         limit=300
-    }){
-        const baseUrl = `http://cdn.espn.com/core/womens-college-basketball/schedule?dates=${year}${parseInt(month) <= 9 ? "0" + parseInt(month) : parseInt(month)}${parseInt(day) <= 9 ? "0" + parseInt(day) : parseInt(day)}`;
+    }) {
+        const baseUrl = `http://cdn.espn.com/womens-college-basketball/schedule/_/date/${year}${parseInt(month) <= 9 ? "0" + parseInt(month) : parseInt(month)}${parseInt(day) <= 9 ? "0" + parseInt(day) : parseInt(day)}/group/${group}`
+        //const baseUrl = `http://cdn.espn.com/core/womens-college-basketball/schedule?dates=${year}${parseInt(month) <= 9 ? "0" + parseInt(month) : parseInt(month)}${parseInt(day) <= 9 ? "0" + parseInt(day) : parseInt(day)}`;
         const params = {
-            groups: groups,
             seasontype: seasontype,
-            limit: limit,
-            xhr: 1,
-            render: false,
-            device: 'desktop',
-            userab: 18
+            xhr: 1
         };
 
         const res = await axios.get(baseUrl, {
